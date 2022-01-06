@@ -57,35 +57,15 @@
 
 							<!-- Quick stats boxes -->
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-12">
 
 									<!-- Members online -->
 									<div class="card">
 										<div class="card-body">
 											<div class="d-flex">
-												<h4 class="font-weight-semibold mb-0">TOTAL REVENUE</h4>
-												<span class="badge badge-dark badge-pill align-self-center ml-auto">{{ date('M') }} {{ date('Y') }}</span>
+												<h4 class="font-weight-semibold mb-0">WELCOME TO CMS</h4>
+												<span class="badge badge-dark badge-pill align-self-center ml-auto">{{ date('d') }} {{ date('M') }} {{ date('Y') }}</span>
 						                	</div>
-						                	
-						                	<div>
-											<h2><?php echo "Rp " . number_format(@$revenue,0,',','.'); ?></h2>
-											
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="font-size-sm">
-														@if(@$revenue > @$revenuebefore)
-														<span class="text-success"><h5><i class="icon-arrow-up52"></i> {{ $averagerevenue }} %</h5></span>
-														@else
-														<span class="text-danger"><h5><i class="icon-arrow-down52"></i> {{ $averagerevenue }} %</h5></span>
-														@endif
-														</div>
-													</div>
-													<div class="col-lg-6" align="right">
-														<div class="font-size-sm">FROM LAST MONTH</div>
-													</div>
-												</div>
-												
-											</div>
 										</div>
 
 										<div class="container-fluid">
@@ -95,71 +75,8 @@
 									<!-- /members online -->
 
 								</div>
-
-								<div class="col-lg-6">
-
-									<!-- Current server load -->
-									<div class="card">
-										<div class="card-body">
-											<div class="d-flex">
-												<h4 class="font-weight-semibold mb-0">TOTAL ITEM SOLD</h4>
-												<span class="badge badge-dark badge-pill align-self-center ml-auto">{{ date('M') }} {{ date('Y') }}</span>
-						                	</div>
-						                	
-						                	<div>
-											<h2>{{ @$sold }} PCS</h2>
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="font-size-sm">
-														@if(@$sold > @$soldbefore)
-														<span class="text-success"><h5><i class="icon-arrow-up52"></i> {{ $averagesold }} %</h5></span>
-														@else
-														<span class="text-danger"><h5><i class="icon-arrow-down52"></i> {{ $averagesold }} %</h5></span>
-														@endif
-														</div>
-													</div>
-													<div class="col-lg-6" align="right">
-														<div class="font-size-sm">FROM LAST MONTH</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div id="server-load"></div>
-									</div>
-									<!-- /current server load -->
-
-								</div>
-
 							</div>
 							<!-- /quick stats boxes -->
-
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="card">
-										<div class="card-header">
-											<h6 class="card-title">Report Statistic <b><u>({{ date('M') }} {{ date('Y') }})</u></b></h6>
-										</div>
-
-										<div class="card-body">
-											<ul class="nav nav-tabs nav-tabs-highlight justify-content-end">
-												<li class="nav-item"><a href="#right-tab1" class="nav-link active" data-toggle="tab">Revenue</a></li>
-												<li class="nav-item"><a href="#right-tab2" class="nav-link" data-toggle="tab">Item Sold</a></li>
-											</ul>
-
-											<div class="tab-content">
-												<div class="tab-pane fade active show" id="right-tab1">
-													<canvas id="revenuechart"></canvas>
-												</div>
-
-												<div class="tab-pane fade" id="right-tab2">
-													<canvas id="soldchart"></canvas>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 
 						</div>
 
