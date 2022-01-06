@@ -37,6 +37,7 @@
 
 							<a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
 						</div>
+
 					</div>
 				</div>
 				<!-- /page header -->
@@ -50,9 +51,9 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="row-fluid" align="right">
-								<a href="{{ route('delivery.tambah') }}" class="btn btn-primary">
+								<a href="{{ route('provinsi.tambah') }}" class="btn btn-primary">
 									<i class="icon-add"></i> 
-									Add New {{ @$indexPage }}
+									Add New Provinsi
 								</a>
 							</div>
 							<div class="col-xl-12">
@@ -61,20 +62,20 @@
 										<thead>
 											<tr>
 												<th>No.</th>
-												<th>Delivery</th>
+												<th>Provinsi</th>
 												<th class="text-center">Actions</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php $no=0; ?>
-											@foreach(@$delivery as $rs)
+											@foreach(@$provinsi as $rs)
 											<?php $no++; ?>
 											<tr>
 												<td>{{ @$no }}</td>
-												<td>{{ @$rs->delivery }}</td>
+												<td>{{ @$rs->provinsi }}</td>
 												<td class="text-center">
-													<a href="{{ route('delivery.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
-													<a href="{{ route('delivery.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
+													<a href="{{ route('provinsi.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
+													<a href="{{ route('provinsi.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
 												</td>
 											</tr>
 											@endforeach

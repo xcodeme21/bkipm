@@ -37,6 +37,7 @@
 
 							<a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
 						</div>
+
 					</div>
 				</div>
 				<!-- /page header -->
@@ -49,46 +50,24 @@
 
 					<div class="card">
 						<div class="card-body">
-							<div class="row-fluid" align="right">
-								<a href="{{ route('customers.tambah') }}" class="btn btn-primary">
-									<i class="icon-add"></i> 
-									Add New Customer
-								</a>
-							</div>
 							<div class="col-xl-12">
-								<div class="table-responsive">
-									<table class="table datatable-basic">
-										<thead>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>Username</th>
-												<th>Alamat</th>
-												<th>No. Tlp</th>
-												<th>Email</th>
-												<th class="text-center">Actions</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php $no=0; ?>
-											@foreach(@$customers as $rs)
-											<?php $no++; ?>
-											<tr>
-												<td>{{ @$no }}</td>
-												<td>{{ @$rs->nama }}</td>
-												<td>{{ @$rs->username }}</td>
-												<td>{{ @$rs->alamat }}</td>
-												<td>{{ @$rs->no_tlp }}</td>
-												<td>{{ @$rs->email }}</td>
-												<td class="text-center">
-													<a href="{{ route('customers.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
-													<a href="{{ route('customers.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
-												</td>
-											</tr>
-											@endforeach
-										</tbody>
-									</table>
+								{{ Form::open(['route'=>'provinsi.update', 'method' => 'POST']) }} 
+								{{ Form::token() }}
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">provinsi</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<input type="text" name="provinsi" value="{{ @$rs->provinsi }}" class="form-control form-control-outline" placeholder="Placeholder" required>
+											<label class="label-floating">Masukkan provinsi</label>
+											<input type="hidden" name="id" value="{{ @$rs->id }}" />
+										</div>
+									</div>
 								</div>
+								<div class="form-group form-group-floating row">
+									<button type="submit" class="btn btn-success">Simpan</button>&nbsp;
+									<a href="{{ route('provinsi') }}" class="btn btn-warning">Batal</a>
+								</div>
+								{{ Form::close() }}
 							</div>
 						</div>
 					</div>

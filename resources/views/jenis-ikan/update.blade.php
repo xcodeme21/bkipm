@@ -67,8 +67,8 @@
 									<label class="col-form-label col-lg-2">Harga</label>
 									<div class="col-lg-10">
 										<div class="position-relative">
-											<input type="text" data-type="currency" value="{{ number_format(@$rs->harga, 0) }}"  id="currency-field" name="harga" class="form-control form-control-outline" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" placeholder="Placeholder" required>
-											<label class="label-floating">Masukkan harga /kg (USD)</label>
+											<input type="text" value="{{ number_format(@$rs->harga,0,',','.') }}" name="harga" class="form-control form-control-outline uang" placeholder="Placeholder" required>
+											<label class="label-floating">Masukkan harga /kg (Rp.)</label>
 										</div>
 									</div>
 								</div>

@@ -49,7 +49,7 @@ class JenisIkanController extends Controller
             return redirect()->back()->with(['error' => 'Mohon pastikan isian Anda!']); 
         }
         $input = $request->except('_token');
-        $input['harga'] = str_replace(',', '', $input['harga']);
+        $input['harga'] = str_replace('.', '', $input['harga']);
 
 		$insert = JenisIkan::create($input);
 
@@ -83,7 +83,7 @@ class JenisIkanController extends Controller
         }
         
         $input = $request->except('_token');
-        $input['harga'] = str_replace(',', '', $input['harga']);
+        $input['harga'] = str_replace('.', '', $input['harga']);
 
 		$update = JenisIkan::whereId($id)->update($input);
 

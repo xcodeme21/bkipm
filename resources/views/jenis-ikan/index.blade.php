@@ -73,7 +73,7 @@
 											<tr>
 												<td>{{ @$no }}</td>
 												<td>{{ @$rs->jenis_ikan }}</td>
-												<td>$ {{ number_format(@$rs->harga, 0) }}</td>
+												<td>Rp. {{ number_format(@$rs->harga,0,',','.') }}</td>
 												<td class="text-center">
 													<a href="{{ route('jenis-ikan.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
 													<a href="{{ route('jenis-ikan.delete',[$rs->id]) }}" onclick="return confirm('Aksi ini akan menghapus semua produk yang memiliki brand {{ @$rs->nama_brand }}?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
