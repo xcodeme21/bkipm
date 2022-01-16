@@ -97,5 +97,12 @@
     }
 
 
+    $('.tahun').datepicker({
+        minViewMode: 2,
+        format: 'yyyy',
+        autoclose: true
+    });
+
+
 
 </script>

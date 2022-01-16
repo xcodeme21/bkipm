@@ -10,6 +10,7 @@
 	<link href="{{ asset('public/global_assets/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('public/assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('public/assets/css/dataTables.dateTime.min.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
@@ -44,6 +45,12 @@
 	<script src="{{ asset('public/global_assets/js/plugins/pickers/pickadate/legacy.js') }}"></script>
 	<script src="{{ asset('public/global_assets/js/demo_pages/picker_date.js') }}"></script>
 	<script src="{{ asset('public/global_assets/js/jquery.mask.min.js') }}"></script>
+	<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js') }}"></script>
 	<!-- /theme JS files -->
+	<style>
+		.ui-datepicker-calendar {
+		display: none;
+		}
+	</style>
 
 </head>

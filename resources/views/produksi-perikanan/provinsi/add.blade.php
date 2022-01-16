@@ -51,14 +51,65 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="col-xl-12">
-								{{ Form::open(['route'=>'provinsi.add', 'method' => 'POST']) }} 
+								{{ Form::open(['route'=>'pp.provinsi.add', 'method' => 'POST']) }} 
 								{{ Form::token() }}
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Jenis Usaha</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<select name="jenis_usaha_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Jenis Usaha --</option>
+												@foreach(@$jenisusaha as $ju)
+												<option value="{{ @$ju->id }}">{{ @$ju->jenis_usaha }}</option>
+												@endforeach
+											</select>
+											<label class="label-floating">Masukkan jenis usaha</label>
+										</div>
+									</div>
+								</div>
 								<div class="form-group form-group-floating row">
 									<label class="col-form-label col-lg-2">Provinsi</label>
 									<div class="col-lg-10">
 										<div class="position-relative">
-											<input type="text" name="provinsi" class="form-control form-control-outline" placeholder="Placeholder" required>
+											<select name="provinsi_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Provinsi --</option>
+												@foreach(@$provinsi as $pr)
+												<option value="{{ @$pr->id }}">{{ @$pr->provinsi }}</option>
+												@endforeach
+											</select>
 											<label class="label-floating">Masukkan provinsi</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Jenis Tahun</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<input type="text" class="form-control form-control-outline tahun" name="tahun" required>
+											<label class="label-floating">Masukkan tahun</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Jenis Ikan</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<select name="jenis_ikan_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Jenis Ikan --</option>
+												@foreach(@$jenisikan as $ji)
+												<option value="{{ @$ji->id }}">{{ @$ji->jenis_ikan }}</option>
+												@endforeach
+											</select>
+											<label class="label-floating">Masukkan jenis ikan</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Volume Produksi</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<input type="number" class="form-control form-control-outline" name="volume_produksi" required>
+											<label class="label-floating">Masukkan volume produksi</label>
 										</div>
 									</div>
 								</div>

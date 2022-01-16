@@ -51,21 +51,72 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="col-xl-12">
-								{{ Form::open(['route'=>'provinsi.update', 'method' => 'POST']) }} 
+								{{ Form::open(['route'=>'pp.provinsi.update', 'method' => 'POST']) }} 
 								{{ Form::token() }}
 								<div class="form-group form-group-floating row">
-									<label class="col-form-label col-lg-2">provinsi</label>
+									<label class="col-form-label col-lg-2">Jenis Usaha</label>
 									<div class="col-lg-10">
 										<div class="position-relative">
-											<input type="text" name="provinsi" value="{{ @$rs->provinsi }}" class="form-control form-control-outline" placeholder="Placeholder" required>
+											<select name="jenis_usaha_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Jenis Usaha --</option>
+												@foreach(@$jenisusaha as $ju)
+												<option value="{{ @$ju->id }}" @if(@$ju->id == @$rs->jenis_usaha_id) selected @endif>{{ @$ju->jenis_usaha }}</option>
+												@endforeach
+												<input type="hidden" name="id" value="{{ @$rs->id }}" />
+											</select>
+											<label class="label-floating">Masukkan jenis usaha</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Provinsi</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<select name="provinsi_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Provinsi --</option>
+												@foreach(@$provinsi as $pr)
+												<option value="{{ @$pr->id }}" @if(@$ji->pr == @$rs->provinsi_id) selected @endif>{{ @$pr->provinsi }}</option>
+												@endforeach
+											</select>
 											<label class="label-floating">Masukkan provinsi</label>
-											<input type="hidden" name="id" value="{{ @$rs->id }}" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Jenis Tahun</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<input type="text" class="form-control form-control-outline tahun" name="tahun" value="{{ @$rs->tahun }}" required>
+											<label class="label-floating">Masukkan tahun</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Jenis Ikan</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<select name="jenis_ikan_id" class="form-control form-control-outline" required>
+												<option value="">-- Pilih Jenis Ikan --</option>
+												@foreach(@$jenisikan as $ji)
+												<option value="{{ @$ji->id }}" @if(@$ji->id == @$rs->jenis_ikan_id) selected @endif>{{ @$ji->jenis_ikan }}</option>
+												@endforeach
+											</select>
+											<label class="label-floating">Masukkan jenis ikan</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group form-group-floating row">
+									<label class="col-form-label col-lg-2">Volume Produksi</label>
+									<div class="col-lg-10">
+										<div class="position-relative">
+											<input type="number" class="form-control form-control-outline" name="volume_produksi" value="{{ @$rs->volume_produksi }}" required>
+											<label class="label-floating">Masukkan volume produksi</label>
 										</div>
 									</div>
 								</div>
 								<div class="form-group form-group-floating row">
 									<button type="submit" class="btn btn-success">Simpan</button>&nbsp;
-									<a href="{{ route('provinsi') }}" class="btn btn-warning">Batal</a>
+									<a href="{{ route('pp.provinsi') }}" class="btn btn-warning">Batal</a>
 								</div>
 								{{ Form::close() }}
 							</div>

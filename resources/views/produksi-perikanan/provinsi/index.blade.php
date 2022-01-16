@@ -53,7 +53,7 @@
 							<div class="row-fluid" align="right">
 								<a href="{{ route('pp.provinsi.tambah') }}" class="btn btn-primary">
 									<i class="icon-add"></i> 
-									Add New Provinsi
+									Add New
 								</a>
 							</div>
 							<div class="col-xl-12">
@@ -82,7 +82,7 @@
 												<td>{{ @$rs->jenisikan->jenis_ikan }}</td>
 												<td>{{ @$rs->tahun }}</td>
 												<td>{{ @$rs->volume_produksi }}</td>
-												<td>{{ @$rs->nilai_produksi }}</td>
+												<td>Rp. {{ number_format(@$rs->nilai_produksi,0,',','.') }}</td>
 												<td class="text-center">
 													<a href="{{ route('pp.provinsi.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
 													<a href="{{ route('pp.provinsi.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
