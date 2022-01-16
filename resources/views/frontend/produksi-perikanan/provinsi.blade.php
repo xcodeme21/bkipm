@@ -53,7 +53,7 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                        <!-- Nav Item - prov Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link" href="{{ route('login') }}"  aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login <i class="fas fa-fw fa-arrow-right"></i></span>
@@ -80,31 +80,32 @@
                     <div class="row">
 
                         <!-- Area Chart -->
-                        <div class="col-xl-12 col-lg-12">
+                        <div class="col-6-12 col-lg-6">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                    <h6 class="m-0 font-weight-bold text-primary">Volume Produksi</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                        <canvas id="volume"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Nilai Produksi</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="nilai"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +145,73 @@
 
 
     @include("frontend.include.scripts")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+        var year = <?php echo $year; ?>;
+        var volume = <?php echo $volume; ?>;
+        var barChartData = {
+            labels: year,
+            datasets: [{
+                label: 'Volume Produksi',
+                backgroundColor: "orange",
+                data: volume
+            }]
+        };
+
+    
+
+        var nilai = <?php echo $nilai; ?>;
+        var barChartData2 = {
+            labels: year,
+            datasets: [{
+                label: 'Nilai Produksi',
+                backgroundColor: "pink",
+                data: nilai
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("volume").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    // title: {
+                    //     display: true,
+                    //     text: 'Yearly volume Joined'
+                    // }
+                }
+            });
+
+            var ctx = document.getElementById("nilai").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData2,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    // title: {
+                    //     display: true,
+                    //     text: 'Yearly volume Joined'
+                    // }
+                }
+            });
+        };
+    </script>
 
 </body>
 
