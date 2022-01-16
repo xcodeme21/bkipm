@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Auth, DB;
 use Yajra\Datatables\Datatables;
 use App\Models\Provinsi;
-use App\Models\StockList;
 
 class ProvinsiController extends Controller
 {

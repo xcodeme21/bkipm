@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth, DB;
 use Yajra\Datatables\Datatables;
-use App\Models\Provinsi;
-use App\Models\StockList;
+use App\Models\PpProvinsi;
 
 class PpProvinsiController extends Controller
 {
@@ -20,7 +19,7 @@ class PpProvinsiController extends Controller
   
     public function index()
     {
-        $provinsi=Provinsi::all();
+        $provinsi=PpProvinsi::all();
 
 		$data = array(  
             'indexPage' => "Produksi Perikanan Provinsi",
@@ -42,14 +41,14 @@ class PpProvinsiController extends Controller
         $this->validate($request, [
             'provinsi' => 'required|unique:provinsi,provinsi',
         ]);
-		$insert = Provinsi::create($request->except('_token'));
+		$insert = PpProvinsi::create($request->except('_token'));
 
         return redirect()->route('pp.provinsi')->with(['success' => 'Data produksi perikanan provinsi ditambahkan.']); 
     }
   
     public function edit($id)
     {
-        $rs=Provinsi::find($id);
+        $rs=PpProvinsi::find($id);
 
 		$data = array(  
             'indexPage' => "Update Produksi Perikanan Provinsi",
@@ -66,14 +65,14 @@ class PpProvinsiController extends Controller
             'provinsi' => 'required|unique:provinsi,provinsi,'.$id,
         ]);
         
-		$update = Provinsi::whereId($id)->update($request->except('_token'));
+		$update = PpProvinsi::whereId($id)->update($request->except('_token'));
 
         return redirect()->route('pp.provinsi')->with(['success' => 'Data produksi perikanan provinsi diupdate.']); 
     }
 
     public function delete($id)
     {
-        $id = Provinsi::find($id);
+        $id = PpProvinsi::find($id);
         $id ->delete();
 
         return redirect()->route('pp.provinsi')->with(['success' => 'Data produksi perikanan provinsi dihapus.']);

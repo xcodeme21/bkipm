@@ -51,7 +51,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="row-fluid" align="right">
-								<a href="{{ route('provinsi.tambah') }}" class="btn btn-primary">
+								<a href="{{ route('pp.provinsi.tambah') }}" class="btn btn-primary">
 									<i class="icon-add"></i> 
 									Add New Provinsi
 								</a>
@@ -62,7 +62,12 @@
 										<thead>
 											<tr>
 												<th>No.</th>
+												<th>Jenis Usaha</th>
 												<th>Provinsi</th>
+												<th>Jenis Ikan</th>
+												<th>Tahun</th>
+												<th>Volume Produksi</th>
+												<th>Nilai Produksi</th>
 												<th class="text-center">Actions</th>
 											</tr>
 										</thead>
@@ -72,10 +77,15 @@
 											<?php $no++; ?>
 											<tr>
 												<td>{{ @$no }}</td>
-												<td>{{ @$rs->provinsi }}</td>
+												<td>{{ @$rs->jenisusaha->jenis_usaha }}</td>
+												<td>{{ @$rs->provinsi->provinsi }}</td>
+												<td>{{ @$rs->jenisikan->jenis_ikan }}</td>
+												<td>{{ @$rs->tahun }}</td>
+												<td>{{ @$rs->volume_produksi }}</td>
+												<td>{{ @$rs->nilai_produksi }}</td>
 												<td class="text-center">
-													<a href="{{ route('provinsi.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
-													<a href="{{ route('provinsi.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
+													<a href="{{ route('pp.provinsi.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
+													<a href="{{ route('pp.provinsi.delete',[$rs->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
 												</td>
 											</tr>
 											@endforeach
