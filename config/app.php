@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'CMS BKIPM',
+    'name' => 'KPP CMS',
 
     'telephone' => '081315977478',
 
