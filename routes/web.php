@@ -21,7 +21,7 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 
 //frontend
 Route::group(['prefix'=>'pp'], function(){
-    Route::get('/provinsi', [App\Http\Controllers\HomeController::class, 'produksiperikanan'])->name('fe.pp.provinsi');
+    Route::get('/provinsi', [App\Http\Controllers\HomeController::class, 'ppprov'])->name('fe.pp.provinsi');
 });
 
 Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
