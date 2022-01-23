@@ -21,7 +21,7 @@
                 </a>
             </li>
 
-            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'brands' || Route::current()->getName() == 'size' || Route::current()->getName() == 'stock-in' || Route::current()->getName() == 'stock-out' || Route::current()->getName() == 'stock-list' || Route::current()->getName() == 'stock-opname') nav-item-expanded @endif">
+            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'jenis-usaha' || Route::current()->getName() == 'provinsi' || Route::current()->getName() == 'jenis-ikan') nav-item-expanded @endif">
                 <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Masterisasi</span></a>
                 <ul class="nav nav-group-sub" data-submenu-title="Stock">
                     <li class="nav-item"><a href="{{ route('jenis-usaha') }}" class="nav-link @if(Route::current()->getName() == 'jenis-usaha') active @endif"><i class="icon-color-sampler"></i> Jenis Usaha</a></li>

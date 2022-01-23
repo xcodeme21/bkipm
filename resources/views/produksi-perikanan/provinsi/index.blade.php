@@ -81,7 +81,7 @@
 												<td>{{ @$rs->provinsi->provinsi }}</td>
 												<td>{{ @$rs->jenisikan->jenis_ikan }}</td>
 												<td>{{ @$rs->tahun }}</td>
-												<td>{{ @$rs->volume_produksi }}</td>
+												<td>{{ number_format(@$rs->volume_produksi,0,',','.') }}</td>
 												<td>Rp. {{ number_format(@$rs->nilai_produksi,0,',','.') }}</td>
 												<td class="text-center">
 													<a href="{{ route('pp.provinsi.edit',[$rs->id]) }}" class="btn btn-info"><i class="icon-pencil"></i> Update</a>
