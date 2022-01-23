@@ -62,7 +62,6 @@ Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
     Route::get('users/delete/{id}', [App\Http\Controllers\UsersController::class, 'delete'])->name('users.delete');
 
     Route::group(['prefix'=>'produksi-perikanan'], function(){
-
         /*PRODUKSI PERIKANAN PROVINSI*/
         Route::get('provinsi', [App\Http\Controllers\PpProvinsiController::class, 'index'])->name('pp.provinsi');
         Route::get('provinsi/tambah', [App\Http\Controllers\PpProvinsiController::class, 'tambah'])->name('pp.provinsi.tambah');
@@ -70,6 +69,18 @@ Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
         Route::get('provinsi/edit/{id}', [App\Http\Controllers\PpProvinsiController::class, 'edit'])->name('pp.provinsi.edit');
         Route::post('provinsi/update', [App\Http\Controllers\PpProvinsiController::class, 'update'])->name('pp.provinsi.update');
         Route::get('provinsi/delete/{id}', [App\Http\Controllers\PpProvinsiController::class, 'delete'])->name('pp.provinsi.delete');
+    });
 
+    Route::group(['prefix'=>'impor'], function(){
+        /*VOLUME*/
+        Route::get('volume', [App\Http\Controllers\ImporController::class, 'index'])->name('impor.volume');
+        Route::get('volume/tambah', [App\Http\Controllers\ImporController::class, 'tambah'])->name('impor.volume.tambah');
+        Route::post('volume/add', [App\Http\Controllers\ImporController::class, 'add'])->name('impor.volume.add');
+        Route::get('volume/edit/{id}', [App\Http\Controllers\ImporController::class, 'edit'])->name('impor.volume.edit');
+        Route::post('volume/update', [App\Http\Controllers\ImporController::class, 'update'])->name('impor.volume.update');
+        Route::get('volume/delete/{id}', [App\Http\Controllers\ImporController::class, 'delete'])->name('impor.volume.delete');
+        
+        /*FREKUENSI*/
+        Route::get('frekuensi', [App\Http\Controllers\ImporController::class, 'indexFrekuensi'])->name('impor.frekuensi');
     });
 });

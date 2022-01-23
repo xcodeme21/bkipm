@@ -30,10 +30,18 @@
                 </ul>
             </li>
 
-            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'brands' || Route::current()->getName() == 'size' || Route::current()->getName() == 'stock-in' || Route::current()->getName() == 'stock-out' || Route::current()->getName() == 'stock-list' || Route::current()->getName() == 'stock-opname') nav-item-expanded @endif">
+            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'pp.provinsi') nav-item-expanded @endif">
                 <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Produksi Perikanan</span></a>
-                <ul class="nav nav-group-sub" data-submenu-title="Stock">
-                    <li class="nav-item"><a href="{{ route('pp.provinsi') }}" class="nav-link @if(Route::current()->getName() == 'produksi-perikanan/provinsi') active @endif"><i class="icon-color-sampler"></i> Provinsi</a></li>
+                <ul class="nav nav-group-sub" data-submenu-title="Produksi Perikanan">
+                    <li class="nav-item"><a href="{{ route('pp.provinsi') }}" class="nav-link @if(Route::current()->getName() == 'pp.provinsi') active @endif"><i class="icon-color-sampler"></i> Provinsi</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'impor.volume' || Route::current()->getName() == 'impor.frekuensi') nav-item-expanded @endif">
+                <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Import</span></a>
+                <ul class="nav nav-group-sub" data-submenu-title="Import">
+                    <li class="nav-item"><a href="{{ route('impor.volume') }}" class="nav-link @if(Route::current()->getName() == 'impor.volume') active @endif"><i class="icon-color-sampler"></i> Volume</a></li>
+                    <li class="nav-item"><a href="{{ route('impor.frekuensi') }}" class="nav-link @if(Route::current()->getName() == 'impor.frekuensi') active @endif"><i class="icon-color-sampler"></i> Frekuensi</a></li>
                 </ul>
             </li>
 
