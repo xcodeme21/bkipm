@@ -17,6 +17,7 @@ class CreateEksporFrekuensi extends Migration
             $table->id();
             $table->integer('ekspor_id')->default(0);
             $table->bigInteger('frekuensi')->default(0);
+            $table->year('tahun')->default('2000');
             $table->timestamps();
             $table->softDeletes();
         });

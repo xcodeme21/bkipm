@@ -12,7 +12,7 @@ class ImporFrekuensi extends Model
     use SoftDeletes;
 
     protected $table = "impor_frekuensi";
-    protected $fillable = ['impor_id','frekuensi']; 
+    protected $fillable = ['impor_id','frekuensi','tahun']; 
     public $timestamps = true;
     protected $dates = ['deleted_at'];
 

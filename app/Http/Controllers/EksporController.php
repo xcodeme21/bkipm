@@ -83,13 +83,15 @@ class EksporController extends Controller
         if($cekfrekuensi == null) {
             $inputFrekuensi=array(
                 'ekspor_id' => $id,
-                'frekuensi' => 1
+                'frekuensi' => 1,
+                'tahun' => $input['tahun']
             );
             $createFrekuensi=EksporFrekuensi::create($inputFrekuensi);
         } else {
             $inputFrekuensi=array(
                 'ekspor_id' => $id,
-                'frekuensi' => $cekfrekuensi->frekuensi + 1
+                'frekuensi' => $cekfrekuensi->frekuensi + 1,
+                'tahun' => $input['tahun']
             );
             $cekfrekuensi->update($inputFrekuensi);
         }

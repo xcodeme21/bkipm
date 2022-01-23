@@ -70,6 +70,20 @@
     Ekspor
 </div>
 
+<li class="nav-item @if(Request::is('ekspor/*')) active @endif">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+        aria-expanded="true" aria-controls="collapseFour">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Ekspor</span>
+    </a>
+    <div id="collapseFour" class="collapse @if(Request::is('ekspor/volume') || Request::is('ekspor/frekuensi')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @if(Request::is('ekspor/volume')) active @endif" href="{{ route('fe.ekspor.volume') }}">Volume</a>
+            <a class="collapse-item @if(Request::is('ekspor/frekuensi')) active @endif" href="{{ route('fe.ekspor.frekuensi') }}">Frekuensi</a>
+        </div>
+    </div>
+</li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

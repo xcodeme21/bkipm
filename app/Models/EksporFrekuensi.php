@@ -12,7 +12,7 @@ class EksporFrekuensi extends Model
     use SoftDeletes;
 
     protected $table = "ekspor_frekuensi";
-    protected $fillable = ['ekspor_id','frekuensi']; 
+    protected $fillable = ['ekspor_id','frekuensi','tahun']; 
     public $timestamps = true;
     protected $dates = ['deleted_at'];
 
