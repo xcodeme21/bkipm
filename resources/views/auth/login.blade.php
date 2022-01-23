@@ -49,7 +49,7 @@
 						<div class="card mb-0">
 							<div class="card-body">
 								<div class="text-center mb-3">
-									<img src="{{ asset('public/global_assets/images/logo.png') }}" width="150" />
+									<img src="{{ asset('public/uploads/logo/'.@$logo->logo) }}" width="150" />
 									<h5 class="mb-0">Login to your account</h5>
 									<span class="d-block text-muted">Your credentials</span>
 								</div>

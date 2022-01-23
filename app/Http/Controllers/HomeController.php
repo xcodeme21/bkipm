@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PpProvinsi;
 use App\Models\Provinsi;
+use App\Models\Logo;
 
 class HomeController extends Controller
 {

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth, DB, Hash;
 use App\Models\User;
 use Illuminate\Support\Arr;
+use App\Models\Logo;
 
 class ProfileController extends Controller
 {
@@ -19,8 +20,11 @@ class ProfileController extends Controller
 
     public function index()
     {   
+        $logo=Logo::find(1);
+
 		$data = array(  
             'indexPage' => "Profile",
+            'logo' => $logo
         );
         
         return view($this->base.'index')->with($data);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth, DB;
-use App\Models\StockOut;
+use App\Models\Logo;
 
 class DashboardController extends Controller
 {
@@ -18,8 +18,11 @@ class DashboardController extends Controller
 
     public function index()
     {   
+        $logo=Logo::find(1);
+
 		$data = array(  
             'indexPage' => "Dashboard",
+            'logo' => $logo
         );
         
         return view($this->base.'index')->with($data);

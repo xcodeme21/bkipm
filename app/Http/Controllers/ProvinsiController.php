@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth, DB;
 use Yajra\Datatables\Datatables;
 use App\Models\Provinsi;
+use App\Models\Logo;
 
 class ProvinsiController extends Controller
 {
@@ -20,18 +21,23 @@ class ProvinsiController extends Controller
     public function index()
     {
         $provinsi=Provinsi::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Provinsi",
-            'provinsi' => $provinsi
+            'provinsi' => $provinsi,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
     
     public function tambah()
     {
+        $logo=Logo::find(1);
+
 		$data = array(  
             'indexPage' => "Tambah Data Provinsi",
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -49,10 +55,12 @@ class ProvinsiController extends Controller
     public function edit($id)
     {
         $rs=Provinsi::find($id);
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Data Provinsi",
-            'rs' => $rs
+            'rs' => $rs,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }

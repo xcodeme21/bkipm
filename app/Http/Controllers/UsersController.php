@@ -9,6 +9,7 @@ use Yajra\Datatables\Datatables;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
+use App\Models\Logo;
 
 class UsersController extends Controller
 {
@@ -22,18 +23,23 @@ class UsersController extends Controller
     public function index()
     {
         $users=User::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Users",
-            'users' => $users
+            'users' => $users,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
     
     public function tambah()
     {
+        $logo=Logo::find(1);
+
 		$data = array(  
-            'indexPage' => "Tambah Data Users"
+            'indexPage' => "Tambah Data Users",
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -57,10 +63,12 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Data Users",
-            'user' => $user
+            'user' => $user,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }

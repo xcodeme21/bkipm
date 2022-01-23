@@ -9,8 +9,8 @@
 
     <div class="navbar-brand text-center text-lg-left">
         <a href="{{ route('dashboard') }}" class="d-inline-block">
-            <img src="{{ asset('public/global_assets/images/logo.png') }}" class="d-none d-sm-block" alt="">
-            <img src="{{ asset('public/global_assets/images/logo.png') }}" class="d-sm-none" alt="">
+            <img src="{{ asset('public/uploads/logo/'.@$logo->logo) }}" class="d-none d-sm-block" alt="">
+            <img src="{{ asset('public/uploads/logo/'.@$logo->logo) }}" class="d-sm-none" alt="">
         </a>
     </div>
 

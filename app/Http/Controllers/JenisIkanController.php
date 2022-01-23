@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth, DB, Validator;
 use Yajra\Datatables\Datatables;
 use App\Models\JenisIkan;
+use App\Models\Logo;
 
 class JenisIkanController extends Controller
 {
@@ -20,18 +21,23 @@ class JenisIkanController extends Controller
     public function index()
     {
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Jenis Ikan",
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
     
     public function tambah()
     {
+        $logo=Logo::find(1);
+
 		$data = array(  
             'indexPage' => "Tambah Jenis Ikan",
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -59,10 +65,12 @@ class JenisIkanController extends Controller
     public function edit($id)
     {
         $rs=JenisIkan::find($id);
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Jenis Ikan",
-            'rs' => $rs
+            'rs' => $rs,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }

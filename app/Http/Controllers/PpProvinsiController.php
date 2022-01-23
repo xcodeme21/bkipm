@@ -10,6 +10,7 @@ use App\Models\PpProvinsi;
 use App\Models\JenisUsaha;
 use App\Models\Provinsi;
 use App\Models\JenisIkan;
+use App\Models\Logo;
 
 class PpProvinsiController extends Controller
 {
@@ -23,10 +24,12 @@ class PpProvinsiController extends Controller
     public function index()
     {
         $provinsi=PpProvinsi::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Produksi Perikanan Provinsi",
-            'provinsi' => $provinsi
+            'provinsi' => $provinsi,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
@@ -36,12 +39,14 @@ class PpProvinsiController extends Controller
         $jenisusaha=JenisUsaha::all();
         $provinsi=Provinsi::all();
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Tambah Produksi Perikanan Provinsi",
             'jenisusaha' => $jenisusaha,
             'provinsi' => $provinsi,
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -90,13 +95,15 @@ class PpProvinsiController extends Controller
         $jenisusaha=JenisUsaha::all();
         $provinsi=Provinsi::all();
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Produksi Perikanan Provinsi",
             'rs' => $rs,
             'jenisusaha' => $jenisusaha,
             'provinsi' => $provinsi,
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }

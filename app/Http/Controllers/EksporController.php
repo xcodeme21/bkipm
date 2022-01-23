@@ -9,6 +9,7 @@ use Yajra\Datatables\Datatables;
 use App\Models\Ekspor;
 use App\Models\EksporFrekuensi;
 use App\Models\JenisIkan;
+use App\Models\Logo;
 
 class EksporController extends Controller
 {
@@ -22,10 +23,12 @@ class EksporController extends Controller
     public function index()
     {
         $ekspor=Ekspor::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Ekspor Volume",
-            'ekspor' => $ekspor
+            'ekspor' => $ekspor,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
@@ -33,10 +36,12 @@ class EksporController extends Controller
     public function tambah()
     {
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Tambah Ekspor Volume",
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -96,11 +101,13 @@ class EksporController extends Controller
     {
         $rs=Ekspor::find($id);
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Ekspor Volume",
             'rs' => $rs,
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }
@@ -138,10 +145,12 @@ class EksporController extends Controller
     public function indexFrekuensi()
     {
         $ekspor=EksporFrekuensi::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Ekspor Frekuensi",
-            'ekspor' => $ekspor
+            'ekspor' => $ekspor,
+            'logo' => $logo
 		);
         return view($this->base.'indexFrekuensi')->with($data);
     }

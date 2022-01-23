@@ -9,6 +9,7 @@ use Yajra\Datatables\Datatables;
 use App\Models\Impor;
 use App\Models\ImporFrekuensi;
 use App\Models\JenisIkan;
+use App\Models\Logo;
 
 class ImporController extends Controller
 {
@@ -22,10 +23,12 @@ class ImporController extends Controller
     public function index()
     {
         $impor=Impor::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Impor Volume",
-            'impor' => $impor
+            'impor' => $impor,
+            'logo' => $logo
 		);
         return view($this->base.'index')->with($data);
     }
@@ -33,10 +36,12 @@ class ImporController extends Controller
     public function tambah()
     {
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Tambah Impor Volume",
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'add')->with($data);
     }
@@ -96,11 +101,13 @@ class ImporController extends Controller
     {
         $rs=Impor::find($id);
         $jenisikan=JenisIkan::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Update Impor Volume",
             'rs' => $rs,
-            'jenisikan' => $jenisikan
+            'jenisikan' => $jenisikan,
+            'logo' => $logo
 		);
         return view($this->base.'update')->with($data);
     }
@@ -138,10 +145,12 @@ class ImporController extends Controller
     public function indexFrekuensi()
     {
         $impor=ImporFrekuensi::all();
+        $logo=Logo::find(1);
 
 		$data = array(  
             'indexPage' => "Impor Frekuensi",
-            'impor' => $impor
+            'impor' => $impor,
+            'logo' => $logo
 		);
         return view($this->base.'indexFrekuensi')->with($data);
     }
