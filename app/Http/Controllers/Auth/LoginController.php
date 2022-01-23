@@ -11,6 +11,7 @@ use App\Models\LoginFront;
 use Validator, Auth; 
 use Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Logo;
 
 class LoginController extends Controller
 {
@@ -34,9 +35,12 @@ class LoginController extends Controller
 			return redirect('backend/dashboard');
 		}
         $querySistem = null;
+        $logo=Logo::find(1);
+
 		$data = array(   
             'querySistem' => $querySistem, 
-            'indexPage' => "Login"
+            'indexPage' => "Login",
+            'logo' => $logo
 		);
 		
         return view('auth.login')->with($data);;
