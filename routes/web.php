@@ -23,6 +23,14 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::group(['prefix'=>'pp'], function(){
     Route::get('/provinsi', [App\Http\Controllers\HomeController::class, 'ppprov'])->name('fe.pp.provinsi');
 });
+Route::group(['prefix'=>'impor'], function(){
+    Route::get('/volume', [App\Http\Controllers\HomeController::class, 'imporVolume'])->name('fe.impor.volume');
+    Route::get('/frekuensi', [App\Http\Controllers\HomeController::class, 'imporFrekuensi'])->name('fe.impor.frekuensi');
+});
+Route::group(['prefix'=>'ekspor'], function(){
+    Route::get('/volume', [App\Http\Controllers\HomeController::class, 'eksporVolume'])->name('fe.ekspor.volume');
+    Route::get('/frekuensi', [App\Http\Controllers\HomeController::class, 'eksporFrekuensi'])->name('fe.ekspor.frekuensi');
+});
 
 Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

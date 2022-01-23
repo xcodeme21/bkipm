@@ -92,6 +92,7 @@
                                     <div class="chart-area">
                                         <canvas id="volume"></canvas>
                                     </div>
+                                    <button class="btn btn-primary btn-sm">Total Volume : {{ number_format(@$totalVolume,0,',','.') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +108,7 @@
                                     <div class="chart-area">
                                         <canvas id="nilai"></canvas>
                                     </div>
+                                    <button class="btn btn-primary btn-sm">Total Nilai : {{ number_format(@$totalNilai,0,',','.') }}</button>
                                 </div>
                             </div>
                         </div>

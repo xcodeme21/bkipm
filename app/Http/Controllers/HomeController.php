@@ -16,6 +16,7 @@ class HomeController extends Controller
         $totalppprovnilai=PpProvinsi::sum('nilai_produksi');
         $totalppprovvolume=PpProvinsi::sum('volume_produksi');
         $totalprovinsi=Provinsi::count();
+        $logo=Logo::find(1);
 
         $data = array(
             'indexPage' => $indexPage,
@@ -23,6 +24,7 @@ class HomeController extends Controller
             'totalppprovnilai' => $totalppprovnilai,
             'totalppprovvolume' => $totalppprovvolume,
             'totalprovinsi' => $totalprovinsi,
+            'logo' => $logo
         );
 
         return view('frontend.index')->with($data);
@@ -30,8 +32,11 @@ class HomeController extends Controller
 
     public function ppprov()
     {
+        $logo=Logo::find(1);
         $indexPage="Produksi Perikanan";
-        $year = ['2018','2019','2020','2021','2022'];
+        $thisYear=date('Y');
+        $firstYear=strval((int)$thisYear - 5);
+        $year = range($firstYear, $thisYear);
         
         $volume = [];
         foreach ($year as $key => $value) {
@@ -42,11 +47,17 @@ class HomeController extends Controller
             $nilai[] = PpProvinsi::where('tahun',$value)->sum('nilai_produksi');
         }
 
+        $totalVolume=array_sum($volume);
+        $totalNilai=array_sum($nilai);
+
         $data = array(
             'indexPage' => $indexPage,
             'year' => json_encode($year,JSON_NUMERIC_CHECK),
             'volume' => json_encode($volume,JSON_NUMERIC_CHECK),
-            'nilai' => json_encode($nilai,JSON_NUMERIC_CHECK)
+            'nilai' => json_encode($nilai,JSON_NUMERIC_CHECK),
+            'totalVolume' => $totalVolume,
+            'totalNilai' => $totalNilai,
+            'logo' => $logo
         );
 
         return view('frontend.produksi-perikanan.provinsi')->with($data);
