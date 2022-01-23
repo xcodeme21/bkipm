@@ -9,7 +9,7 @@
 
     <div class="navbar-collapse collapse" id="navbar-footer">
         <span class="navbar-text">
-            &copy; <?php echo date('Y') ?>. <a href="#">{{ config('app.name') }}</a> by <a href="https://wa.me/6285722616546" target="_blank">Adrian Agustin</a>
+            &copy; <?php echo date('Y') ?>. <a href="#">{{ config('app.name') }}</a> by <a href="https://wa.me/62895326326008" target="_blank">Adrian Gustin Wicaksana</a>
         </span>
 
         <ul class="navbar-nav ml-lg-auto">
