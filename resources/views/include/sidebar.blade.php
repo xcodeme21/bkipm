@@ -71,6 +71,15 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('logo') }}" class="nav-link @if(Route::current()->getName() == 'logo') active @endif">
+                    <i class="fa fa-image"></i>
+                    <span>
+                        Logo
+                    </span>
+                </a>
+            </li>
+
 
         </ul>
     </div>

@@ -8,6 +8,7 @@
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<link href="{{ asset('public/global_assets/css/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<link href="{{ asset('public/assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('public/assets/css/dataTables.dateTime.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">

@@ -28,6 +28,8 @@ Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::post('profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('logo', [App\Http\Controllers\LogoController::class, 'index'])->name('logo');
+    Route::post('logo/update', [App\Http\Controllers\LogoController::class, 'update'])->name('logo.update');
     
 	/*MASTER JENIS USAHA*/
     Route::get('jenis-usaha', [App\Http\Controllers\JenisUsahaController::class, 'index'])->name('jenis-usaha');
