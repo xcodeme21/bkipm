@@ -49,12 +49,12 @@
 </div>
 
 <li class="nav-item @if(Request::is('impor/*')) active @endif">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="true" aria-controls="collapseThree">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Impor</span>
     </a>
-    <div id="collapseTwo" class="collapse @if(Request::is('impor/volume') || Request::is('impor/frekuensi')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseThree" class="collapse @if(Request::is('impor/volume') || Request::is('impor/frekuensi')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item @if(Request::is('impor/volume')) active @endif" href="{{ route('fe.impor.volume') }}">Volume</a>
             <a class="collapse-item @if(Request::is('impor/frekuensi')) active @endif" href="{{ route('fe.impor.frekuensi') }}">Frekuensi</a>

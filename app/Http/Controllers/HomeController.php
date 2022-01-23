@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\PpProvinsi;
 use App\Models\Provinsi;
 use App\Models\Logo;
+use App\Models\Impor;
+use App\Models\Ekspor;
 
 class HomeController extends Controller
 {
@@ -61,5 +63,38 @@ class HomeController extends Controller
         );
 
         return view('frontend.produksi-perikanan.provinsi')->with($data);
+    }
+
+    public function imporVolume()
+    {
+        $logo=Logo::find(1);
+        $indexPage="Impor";
+        $thisYear=date('Y');
+        $firstYear=strval((int)$thisYear - 5);
+        $year = range($firstYear, $thisYear);
+        
+        $volume = [];
+        foreach ($year as $key => $value) {
+            $volume[] = Impor::where('tahun',$value)->sum('volume_produksi');
+        }
+        $nilai = [];
+        foreach ($year as $key => $value) {
+            $nilai[] = Impor::where('tahun',$value)->sum('nilai_produksi');
+        }
+
+        $totalVolume=array_sum($volume);
+        $totalNilai=array_sum($nilai);
+
+        $data = array(
+            'indexPage' => $indexPage,
+            'year' => json_encode($year,JSON_NUMERIC_CHECK),
+            'volume' => json_encode($volume,JSON_NUMERIC_CHECK),
+            'nilai' => json_encode($nilai,JSON_NUMERIC_CHECK),
+            'totalVolume' => $totalVolume,
+            'totalNilai' => $totalNilai,
+            'logo' => $logo
+        );
+
+        return view('frontend.impor.volume')->with($data);
     }
 }
