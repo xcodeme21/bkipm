@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 
-class Impor extends Model
+class Ekspor extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = "impor";
+    protected $table = "ekspor";
     protected $fillable = ['jenis_ikan_id','tahun','volume_produksi','nilai_produksi']; 
     public $timestamps = true;
     protected $dates = ['deleted_at'];

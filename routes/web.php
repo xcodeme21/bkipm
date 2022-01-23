@@ -83,4 +83,17 @@ Route::group(['prefix'=>'backend', 'middleware'=>'auth'], function(){
         /*FREKUENSI*/
         Route::get('frekuensi', [App\Http\Controllers\ImporController::class, 'indexFrekuensi'])->name('impor.frekuensi');
     });
+
+    Route::group(['prefix'=>'ekspor'], function(){
+        /*VOLUME*/
+        Route::get('volume', [App\Http\Controllers\EksporController::class, 'index'])->name('ekspor.volume');
+        Route::get('volume/tambah', [App\Http\Controllers\EksporController::class, 'tambah'])->name('ekspor.volume.tambah');
+        Route::post('volume/add', [App\Http\Controllers\EksporController::class, 'add'])->name('ekspor.volume.add');
+        Route::get('volume/edit/{id}', [App\Http\Controllers\EksporController::class, 'edit'])->name('ekspor.volume.edit');
+        Route::post('volume/update', [App\Http\Controllers\EksporController::class, 'update'])->name('ekspor.volume.update');
+        Route::get('volume/delete/{id}', [App\Http\Controllers\EksporController::class, 'delete'])->name('ekspor.volume.delete');
+        
+        /*FREKUENSI*/
+        Route::get('frekuensi', [App\Http\Controllers\EksporController::class, 'indexFrekuensi'])->name('ekspor.frekuensi');
+    });
 });

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth, DB;
 use Yajra\Datatables\Datatables;
-use App\Models\Impor;
-use App\Models\ImporFrekuensi;
+use App\Models\Ekspor;
+use App\Models\EksporFrekuensi;
 use App\Models\JenisIkan;
 
-class ImporController extends Controller
+class EksporController extends Controller
 {
-    protected $base = 'impor.';
+    protected $base = 'ekspor.';
 
     public function __construct()
     {
@@ -21,11 +21,11 @@ class ImporController extends Controller
   
     public function index()
     {
-        $impor=Impor::all();
+        $ekspor=Ekspor::all();
 
 		$data = array(  
-            'indexPage' => "Impor Volume",
-            'impor' => $impor
+            'indexPage' => "Ekspor Volume",
+            'ekspor' => $ekspor
 		);
         return view($this->base.'index')->with($data);
     }
@@ -35,7 +35,7 @@ class ImporController extends Controller
         $jenisikan=JenisIkan::all();
 
 		$data = array(  
-            'indexPage' => "Tambah Impor Volume",
+            'indexPage' => "Tambah Ekspor Volume",
             'jenisikan' => $jenisikan
 		);
         return view($this->base.'add')->with($data);
@@ -54,51 +54,51 @@ class ImporController extends Controller
         $input['nilai_produksi'] = $ji->harga * $input['volume_produksi'] / 14330;
         unset($input['_token']);
 
-        $checkDB = Impor::where('jenis_ikan_id', $input['jenis_ikan_id'])
+        $checkDB = Ekspor::where('jenis_ikan_id', $input['jenis_ikan_id'])
         ->where('tahun', $input['tahun'])
         ->first();
 
         if($checkDB == null) {
-            $id = Impor::create($input)->id;
+            $id = Ekspor::create($input)->id;
         } else {
             $totalsebelumnya = $checkDB->volume_produksi;
             $input['volume_produksi'] = $totalsebelumnya + $input['volume_produksi'];
             $input['nilai_produksi'] = $ji->harga * $input['volume_produksi'] / 14330;
 
             
-            $impor = Impor::where('jenis_ikan_id', $input['jenis_ikan_id'])
+            $ekspor = Ekspor::where('jenis_ikan_id', $input['jenis_ikan_id'])
             ->where('tahun', $input['tahun'])
             ->first();
-            $impor->update($input);
-            $id = $impor->id;
+            $ekspor->update($input);
+            $id = $ekspor->id;
 
         }	
 
-        $cekfrekuensi = ImporFrekuensi::where('impor_id',$id)->first();
+        $cekfrekuensi = EksporFrekuensi::where('ekspor_id',$id)->first();
         if($cekfrekuensi == null) {
             $inputFrekuensi=array(
-                'impor_id' => $id,
+                'ekspor_id' => $id,
                 'frekuensi' => 1
             );
-            $createFrekuensi=ImporFrekuensi::create($inputFrekuensi);
+            $createFrekuensi=EksporFrekuensi::create($inputFrekuensi);
         } else {
             $inputFrekuensi=array(
-                'impor_id' => $id,
+                'ekspor_id' => $id,
                 'frekuensi' => $cekfrekuensi->frekuensi + 1
             );
             $cekfrekuensi->update($inputFrekuensi);
         }
 
-        return redirect()->route('impor.volume')->with(['success' => 'Data Impor ditambahkan.']); 
+        return redirect()->route('ekspor.volume')->with(['success' => 'Data Ekspor ditambahkan.']); 
     }
   
     public function edit($id)
     {
-        $rs=Impor::find($id);
+        $rs=Ekspor::find($id);
         $jenisikan=JenisIkan::all();
 
 		$data = array(  
-            'indexPage' => "Update Impor Volume",
+            'indexPage' => "Update Ekspor Volume",
             'rs' => $rs,
             'jenisikan' => $jenisikan
 		);
@@ -122,26 +122,26 @@ class ImporController extends Controller
         unset($input['_token']);
         
         
-		$update = Impor::whereId($id)->update($input);
+		$update = Ekspor::whereId($id)->update($input);
 
-        return redirect()->route('impor.volume')->with(['success' => 'Data Impor diupdate.']); 
+        return redirect()->route('ekspor.volume')->with(['success' => 'Data Ekspor diupdate.']); 
     }
 
     public function delete($id)
     {
-        $id = Impor::find($id);
+        $id = Ekspor::find($id);
         $id ->delete();
 
-        return redirect()->route('impor.volume')->with(['success' => 'Data Impor dihapus.']);
+        return redirect()->route('ekspor.volume')->with(['success' => 'Data Ekspor dihapus.']);
     }
   
     public function indexFrekuensi()
     {
-        $impor=ImporFrekuensi::all();
+        $ekspor=EksporFrekuensi::all();
 
 		$data = array(  
-            'indexPage' => "Impor Frekuensi",
-            'impor' => $impor
+            'indexPage' => "Ekspor Frekuensi",
+            'ekspor' => $ekspor
 		);
         return view($this->base.'indexFrekuensi')->with($data);
     }

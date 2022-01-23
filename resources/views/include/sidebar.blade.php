@@ -45,6 +45,14 @@
                 </ul>
             </li>
 
+            <li class="nav-item nav-item-submenu @if(Route::current()->getName() == 'ekspor.volume' || Route::current()->getName() == 'ekspor.frekuensi') nav-item-expanded @endif">
+                <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Ekspor</span></a>
+                <ul class="nav nav-group-sub" data-submenu-title="Ekspor">
+                    <li class="nav-item"><a href="{{ route('ekspor.volume') }}" class="nav-link @if(Route::current()->getName() == 'ekspor.volume') active @endif"><i class="icon-color-sampler"></i> Volume</a></li>
+                    <li class="nav-item"><a href="{{ route('ekspor.frekuensi') }}" class="nav-link @if(Route::current()->getName() == 'ekspor.frekuensi') active @endif"><i class="icon-color-sampler"></i> Frekuensi</a></li>
+                </ul>
+            </li>
+
             <li class="nav-item">
                 <a href="{{ route('users') }}" class="nav-link @if(Route::current()->getName() == 'users') active @endif">
                     <i class="icon-people"></i>
